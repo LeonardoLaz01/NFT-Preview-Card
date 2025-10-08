@@ -30,14 +30,51 @@ main {
     text-align: center;
 }
 
-div {
-    margin-inline: 23px;
+header {
+    margin: 23px;
 }
 
-#NFT {
-    width: 87%;
-    border-radius: 10px;
-    margin-top: 23px;
+.image-container {
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0; /*top:0; right:0; bottom:0; left:0 */
+  background-color: hsla(178, 100%, 50%, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+}
+
+.overlay img {
+  width: 48px;
+  height: 48px;
+}
+
+.image-container:hover .overlay {
+  opacity: 1;
+  cursor: pointer;
+}
+
+header:hover ~ .text-container h1 {
+    color: var(--Cyan400);
+}
+
+header:hover ~ .text-container span {
+    color: var(--Cyan400);
+}
+
+.nft {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.text-container {
+    margin-inline: 23px;
 }
 
 .s1 {
@@ -49,7 +86,7 @@ div {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 15px;
+    padding-bottom: 10px;
     border-bottom: 1px solid var(--Blue800);
 }
 
@@ -59,7 +96,7 @@ h1 {
     letter-spacing: 0px;
     font-weight: 600;
     color: white;
-    margin-block: 20px;
+    margin-block: 15px;
 }
 
 p {
@@ -71,12 +108,18 @@ p {
     margin-bottom: 10px;
 }
 
-#ethereum {
+.ethereum {
     font-size: 16px;
     line-height: 125%;
     letter-spacing: 0px;
     font-weight: 600;
     color: var(--Cyan400);
+}
+
+.ethereum::before {
+    content: url(../Images/icon-ethereum.svg);
+    margin-right: 7px;
+    vertical-align: middle;
 }
 
 .small {
@@ -87,10 +130,19 @@ p {
     color: var(--Blue500);
 }
 
+.s2 > .small::before {
+    content: url(../Images/icon-clock.svg);
+    margin-right: 7px;
+    vertical-align: middle;
+}
+
 footer {
     display: flex;
-    align-items: center;
     margin-block: 25px;
+}
+
+footer > .small {
+    padding-top: 6px;
 }
 
 span {
